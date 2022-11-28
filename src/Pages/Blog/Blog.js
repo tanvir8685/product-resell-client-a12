@@ -6,7 +6,7 @@ const Blog = () => {
 
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title text-primary   ">
+                <div className="collapse-title text-primary font-bold    ">
                     What are the different ways to manage a state in a React application?
                 </div>
                 <div className="collapse-content  text-dark  ">
@@ -63,7 +63,7 @@ const Blog = () => {
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title text-primary">
+                <div className="collapse-title text-primary font-bold">
                     How does prototypical inheritance work?
                 </div>
                 <div className="collapse-content  text-dark">
@@ -80,7 +80,7 @@ const Blog = () => {
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title  text-primary">
+                <div className="collapse-title  text-primary font-bold">
                     What is a unit test? Why should we write unit tests?
                 </div>
                 <div className="collapse-content text-dark">
@@ -93,7 +93,7 @@ const Blog = () => {
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title  text-primary">
+                <div className="collapse-title  text-primary font-bold">
                     React vs. Angular vs. Vue?
                 </div>
                 <div className="collapse-content text-dark">
