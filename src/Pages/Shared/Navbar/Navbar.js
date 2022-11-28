@@ -31,11 +31,12 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className=" mask  w-32 h-12">
-                        <img src='https://media.istockphoto.com/id/912599848/vector/yellow-vintage-car-high-detailed-image-of-retro-car-realistic-vehicle.jpg?s=612x612&w=0&k=20&c=ify71XNXcD-fvkPQtiKxsiD6dXkdrxlwVILal_vtllc=' alt="" />
-                        
+                    <Link to='/' className=" mask  w-32 h-12 flex  ml-10 mr-10">
+                    <img src='https://media.istockphoto.com/id/912599848/vector/yellow-vintage-car-high-detailed-image-of-retro-car-realistic-vehicle.jpg?s=612x612&w=0&k=20&c=ify71XNXcD-fvkPQtiKxsiD6dXkdrxlwVILal_vtllc=' alt="" />
+                        <button className="btn btn-ghost normal-case text-xl ">VehicleHUB</button>
+
                     </Link>
-                    <Link className="btn btn-ghost normal-case text-xl">VehicleHUB</Link>
+                    {/* <Link to='/' className="btn btn-ghost normal-case text-xl">VehicleHUB</Link> */}
                 </div>
                 <div className="navbar-center  hidden lg:flex ">
                     <ul className="menu menu-horizontal p-5 mx-10 ">
