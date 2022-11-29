@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingModal from './BookingModal/BookingModal';
 
 const Products = ({product}) => {
     const{date,img,location,orginal_price,product_name, resell_price,year_of_use
@@ -15,10 +16,12 @@ const Products = ({product}) => {
                     <p>Use Duration:{year_of_use} year</p>
                     <p>Date:{date}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Book Now</button>
+                        
+                        <label htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };
