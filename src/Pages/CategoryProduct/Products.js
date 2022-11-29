@@ -1,5 +1,5 @@
 import React from 'react';
-import BookingModal from './BookingModal/BookingModal';
+
 
 const Products = ({product,setModalProduct}) => {
     const{date,img,location,orginal_price,product_name, resell_price,year_of_use
