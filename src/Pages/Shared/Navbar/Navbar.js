@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
+    const {user,logOut}=useContext(AuthContext);
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{
+
+        })
+        .catch(error=>console.log(error))
+    }
     const menuItems=<>
+
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/login'>LogIn</Link></li>
-        <li className='font-semibold'><Link to='/signup'>SignUp</Link></li>
-        {/* {
-          user?.email ?
-          <>
-              <li className='font-semibold'><Link to='/myreview'>MyReview</Link></li>
-              <li className='font-semibold'><Link to='/addservice'>AddService</Link></li>
-              <li className='font-semibold'><Link to='/'>
-                <button onClick={handleLogOut}>LogOut</button></Link></li>
-          </>
-          :
-          
-          <li className='font-semibold'><Link to='/login'>LogIn</Link></li>} */}
-          <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        {
+            user?.uid? 
+            <>
+            <li className='font-semibold'><button onClick={handleLogOut}>LogOut</button></li>
+            <li className='font-semibold'><Link to='/dashboard'>DashBoard</Link></li>
+
+            
+            </>:
+            <li className='font-semibold'><Link to='/login'>LogIn</Link></li>
+        }
+        
+        {/* <li className='font-semibold'><Link to='/signup'>SignUp</Link></li> */}
+        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
     </> 
     return (
         <div>
