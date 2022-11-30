@@ -11,12 +11,25 @@ const SignUp = () => {
 
     const { createUser, updateUser } = useContext(AuthContext)
     const handleSignUp = data => {
-        console.log(data.name)
+        
         setSignUpError('')
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                console.log(data)
+                fetch('http://localhost:5000/alluser',{
+                    method:"POST",
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(data)
+
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data)
+                })
                 toast('user created Successfully')
                 const userInfo = {
                     displayName:data.name
@@ -24,6 +37,7 @@ const SignUp = () => {
                 updateUser(userInfo)
                     .then(() => { 
                         navigate('/')
+
                      })
                     .catch(err => console.log(err))
             })
