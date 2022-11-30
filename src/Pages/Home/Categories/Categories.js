@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
 import Category from './Category';
 
 const Categories = () => {
-    const [vehicleCategories,setVehicleCategories]=useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/vehaicel-categories')
+  
+
+    const{data:vehicleCategories=[],isLoading}=useQuery({
+        queryKey:['vehaicel-categories'],
+        queryFn:()=>fetch('http://localhost:5000/vehaicel-categories')
         .then(res=>res.json())
-        .then(data=>setVehicleCategories(data))
-    },[])
+    })
+
+
+    
 
     
     return (

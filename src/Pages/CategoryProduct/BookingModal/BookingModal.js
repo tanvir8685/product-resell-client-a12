@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({ modalProduct,setModalProduct }) => {
     const { user } = useContext(AuthContext)
     console.log(user)
-    const { product_name, resell_price } = modalProduct;
+    const { product_name, resell_price,img } = modalProduct;
     const handleBooking=event=>{
         event.preventDefault();
         const form=event.target;
@@ -20,11 +21,30 @@ const BookingModal = ({ modalProduct,setModalProduct }) => {
             email,resell_price,
             phone_number
             ,
-            location
+            location,
+            img
         }
         // aferServer set perfect toast 
+        fetch('http://localhost:5000/bookings',{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(booking)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+           
+            if (data.acknowledged){
+                setModalProduct(null);
+                toast.success('Booked')
+
+            }
+            
+        })
         console.log(booking)
-        setModalProduct(null)
+        
     }
 
     return (
