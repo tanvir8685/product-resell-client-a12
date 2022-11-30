@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../../Shared/Loading/Loading';
 
 import Category from './Category';
 
@@ -12,7 +13,9 @@ const Categories = () => {
     })
 
 
-    
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     
     return (
