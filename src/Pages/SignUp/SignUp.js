@@ -3,11 +3,19 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/UseToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const[signUpError,setSignUpError]=useState('');
+    const [cratedUserEmail,setCreatedUserEmail]=useState('')
+    const [token]=useToken(cratedUserEmail);
+
     const navigate=useNavigate();
+
+    if (token){
+        navigate ('/')
+    }
 
     const { createUser, updateUser } = useContext(AuthContext)
     const handleSignUp = data => {
@@ -18,25 +26,15 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user)
                 console.log(data)
-                fetch('http://localhost:5000/alluser',{
-                    method:"POST",
-                    headers:{
-                        'content-type':'application/json'
-                    },
-                    body:JSON.stringify(data)
-
-                })
-                .then(res=>res.json())
-                .then(data=>{
-                    console.log(data)
-                })
+                
                 toast('user created Successfully')
                 const userInfo = {
                     displayName:data.name
                 }
                 updateUser(userInfo)
                     .then(() => { 
-                        navigate('/')
+                        
+                        saveUser(data.name,data.email,data.category)
 
                      })
                     .catch(err => console.log(err))
@@ -46,6 +44,38 @@ const SignUp = () => {
                 setSignUpError(error.message)
             })
     }
+
+    const saveUser=(name,email,categori)=>{
+        const user={name,email,categori};
+        fetch('http://localhost:5000/alluser',{
+                    method:"POST",
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(user)
+
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    // getUserToken(email)
+                    // navigate('/')
+                    setCreatedUserEmail(email)
+                    console.log(data)
+                })
+
+    }
+
+    // const getUserToken =email=>{
+    //     fetch(`http://localhost:5000/jwt?email=${email}`)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         if(data.accessToken){
+    //             localStorage.setItem('accessToken',data.accessToken)
+                
+    //         }
+    //     })
+
+    // }
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>

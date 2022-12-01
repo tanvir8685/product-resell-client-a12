@@ -9,7 +9,11 @@ const MyBooking = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url);
+            const res = await fetch(url,{
+                headers:{
+                    authorization:`bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             console.log(data)
             return data;
@@ -38,7 +42,7 @@ const MyBooking = () => {
 
 
                         {
-                            bookings.map(booking => <tr>
+                            bookings.map((booking,i) => <tr key={i}>
                                 <th>
 
                                     <button className='btn btn-ghost'>X</button>
