@@ -8,7 +8,7 @@ import useToken from '../../hooks/UseToken';
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const[signUpError,setSignUpError]=useState('');
-    const [cratedUserEmail,setCreatedUserEmail]=useState('')
+    const [cratedUserEmail,setCreatedUserEmail]=useState('');
     const [token]=useToken(cratedUserEmail);
 
     const navigate=useNavigate();
