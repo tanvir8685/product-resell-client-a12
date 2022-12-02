@@ -10,11 +10,13 @@ import DashBoard from '../../Pages/DashBoard/DashBoard/DashBoard';
 import MyBooking from '../../Pages/DashBoard/MyBooking/MyBooking';
 
 import Home from '../../Pages/Home/Home/Home';
+import InvalidPage from '../../Pages/InvalidPage/InvalidPage';
 import Login from '../../Pages/Login/Login';
 import SignUp from '../../Pages/SignUp/SignUp';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import SellerRoute from '../SellerRoute/SellerRoute';
+import UserRoute from '../UserRoute/UserRoute';
 
 const router=createBrowserRouter([
     {
@@ -69,6 +71,12 @@ const router=createBrowserRouter([
 
             }
         ]
+    },
+    {
+    
+            path:'*',
+            element:<InvalidPage></InvalidPage>
+           
     }
 ])
 

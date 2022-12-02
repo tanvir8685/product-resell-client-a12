@@ -35,7 +35,7 @@ const AllSeller = () => {
 
     return (
         <div>
-            <h2>This is all sell er</h2>
+            <h2>The List of All Sellers</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     
