@@ -15,6 +15,21 @@ const AllUser = () => {
     if (isLoading){
         return <Loading></Loading>
     }
+    const handleDeleteUser=id=>{
+        fetch(`http://localhost:5000/alluser/${id}`,{
+            method:'DELETE',
+            headers:{
+                authorization:`bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount>0){
+                refetch()
+                toast.success('deleted successfully')
+            }
+        })
+    }
 
     const handleMakeAdmin=(id)=>{
         fetch(`http://localhost:5000/alluser/admin/${id}`,{
@@ -52,7 +67,7 @@ const AllUser = () => {
                         
                         {
                             users.map(user=><tr key={user._id}>
-                                <td><button className='btn btn-primary'>Delete</button></td>
+                                <td><button onClick={()=>handleDeleteUser(user._id)} className='btn btn-primary'>Delete</button></td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user?.role !=='admin' &&  <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-primary'>Make Admin</button>}</td>
