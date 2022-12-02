@@ -43,7 +43,7 @@ const router=createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<PrivateRoute><CategoryProduct></CategoryProduct></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+                loader:({params})=>fetch(`https://products-resale-server-pi.vercel.app/category/${params.id}`)
             },
             
         ]

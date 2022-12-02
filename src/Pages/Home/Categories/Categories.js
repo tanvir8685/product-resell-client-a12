@@ -8,7 +8,7 @@ const Categories = () => {
 
     const{data:vehicleCategories=[],isLoading}=useQuery({
         queryKey:['vehaicel-categories'],
-        queryFn:()=>fetch('http://localhost:5000/vehaicel-categories')
+        queryFn:()=>fetch('https://products-resale-server-pi.vercel.app/vehaicel-categories')
         .then(res=>res.json())
     })
 

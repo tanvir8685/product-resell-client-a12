@@ -7,7 +7,7 @@ const AllUser = () => {
     const { data: users = [],refetch,isLoading } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/alluser?categori=user');
+            const res = await fetch('https://products-resale-server-pi.vercel.app/alluser?categori=user');
             const data = await res.json();
             return data;
         }
@@ -16,7 +16,7 @@ const AllUser = () => {
         return <Loading></Loading>
     }
     const handleDeleteUser=id=>{
-        fetch(`http://localhost:5000/alluser/${id}`,{
+        fetch(`https://products-resale-server-pi.vercel.app/alluser/${id}`,{
             method:'DELETE',
             headers:{
                 authorization:`bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const AllUser = () => {
     }
 
     const handleMakeAdmin=(id)=>{
-        fetch(`http://localhost:5000/alluser/admin/${id}`,{
+        fetch(`https://products-resale-server-pi.vercel.app/alluser/admin/${id}`,{
             method:'PUT',
             headers:{
                 authorization:`bearer ${localStorage.getItem('accessToken')}`

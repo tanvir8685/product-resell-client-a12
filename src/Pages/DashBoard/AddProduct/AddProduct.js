@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const handleProduct=data=>{
-        fetch('http://localhost:5000/sellerproduct',{
+        fetch('https://products-resale-server-pi.vercel.app/sellerproduct',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'

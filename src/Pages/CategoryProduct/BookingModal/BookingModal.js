@@ -25,7 +25,7 @@ const BookingModal = ({ modalProduct,setModalProduct }) => {
             img
         }
         // aferServer set perfect toast 
-        fetch('http://localhost:5000/bookings',{
+        fetch('https://products-resale-server-pi.vercel.app/bookings',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

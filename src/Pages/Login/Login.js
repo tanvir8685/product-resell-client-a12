@@ -50,7 +50,7 @@ const Login = () => {
     }
     const saveUser=(name,email)=>{
         const user={name,email,categori:'user'};
-        fetch('http://localhost:5000/alluser',{
+        fetch('https://products-resale-server-pi.vercel.app/alluser',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
