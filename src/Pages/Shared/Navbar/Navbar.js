@@ -41,7 +41,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className=" mask  w-32 h-12 flex  ml-10 mr-10">
-                        <img src='https://media.istockphoto.com/id/912599848/vector/yellow-vintage-car-high-detailed-image-of-retro-car-realistic-vehicle.jpg?s=612x612&w=0&k=20&c=ify71XNXcD-fvkPQtiKxsiD6dXkdrxlwVILal_vtllc=' alt="" />
+                        {/* <img src='https://media.istockphoto.com/id/912599848/vector/yellow-vintage-car-high-detailed-image-of-retro-car-realistic-vehicle.jpg?s=612x612&w=0&k=20&c=ify71XNXcD-fvkPQtiKxsiD6dXkdrxlwVILal_vtllc=' alt="" /> */}
                         <button className="btn btn-ghost normal-case text-xl ">VehicleHUB</button>
 
                     </Link>
