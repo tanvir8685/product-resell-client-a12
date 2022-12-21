@@ -6,8 +6,8 @@ const Products = ({product,setModalProduct}) => {
     }=product;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={img} alt="Shoes" /></figure>
+            <div className="card mb-12  w-96 bg-base-100 shadow-xl">
+                <figure><img className='h-56' src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Model:{product_name}</h2>
                     <p>Seller Name:{seller}</p>
